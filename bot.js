@@ -17,7 +17,7 @@ app.get('/', function(req, res){
 });
 
 app.post('/post', function(req, res){
-  var query = req.body.text
+  var query = req.body.text;
 
   var parsed_url = url.format({
     pathname: 'http://api.wunderground.com/api/' + apikey + '/conditions/q/' + req.body.text + format,
@@ -29,9 +29,9 @@ app.post('/post', function(req, res){
     if (!error && response.statusCode == 200) {
       var data = JSON.parse(body);
       var temperature = data.current_observation.temperature_string;
-      var weatherCondition = data.current_observation.weather
-      var icon_url = data.current_observation.icon_url
-      var location = data.current_observation.display_location.full
+      var weatherCondition = data.current_observation.weather;
+      var icon_url = data.current_observation.icon_url;
+      var location = data.current_observation.display_location.full;
 
       var body = {
         response_type: "in_channel",
@@ -45,6 +45,10 @@ app.post('/post', function(req, res){
         ]
       };
       res.send(body);
+    } else {
+      console.log('this is the error: ', error);
+      console.log('error: '+ response.statusCode + body);
+      res.send(error);
     }
   });
 });
