@@ -1,0 +1,14 @@
+{
+  "name": "weather-bot",
+  "version": "1.0.0",
+  "description": "A slack bot that returns weather conditions based on a given zip code.",
+  "main": "bot.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Garan Guillory",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.14.0"
+  }
+}
