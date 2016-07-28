@@ -45,10 +45,6 @@ app.post('/post', function(req, res){
         ]
       };
       res.send(body);
-    } else {
-      console.log('this is the error: ', error);
-      console.log('error: '+ response.statusCode + body);
-      res.send(error);
     }
   });
 });
